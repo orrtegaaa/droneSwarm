@@ -1,58 +1,58 @@
 ## DroneSwarm v3_Custom
 
-  Simulación básica de un dron de reparto en una cuadrícula con obstáculos
+Basic simulation of a delivery drone in a grid with obstacles
 
 ---
 
-## Descripción
+## Description
 
-Este proyecto consiste en un programa en Python que simula el movimiento de un dron dentro de un mapa en forma de cuadrícula.
+This project is a Python program that simulates the movement of a drone inside a grid map.
 
-El dron parte desde una posición inicial y tiene que recorrer el entorno para completar varias entregas. En el mapa también hay obstáculos que representan edificios, por lo que no todos los caminos son válidos.
+The drone starts from an initial position and has to move through the environment to complete several deliveries. There are also obstacles on the map that represent buildings, so not all paths are valid.
 
-Al ejecutar el programa, primero se entrena el agente y después se muestra una ventana visual en la que puede verse cómo se mueve el dron por el mapa.
-
----
-
-## Qué hace el programa
-
-El programa incluye:
-
-- un mapa de **8x8**
-- una posición inicial para el dron
-- **3 puntos de entrega**
-- varios edificios bloqueando algunas casillas
-- un sistema de entrenamiento
-- una visualización final con **Pygame**
-
-Durante la simulación, el dron se mueve por la cuadrícula hasta completar todas las entregas o llegar al límite de pasos.
+When the program runs, the agent is trained first, and then a visual window is shown where you can see how the drone moves on the map.
 
 ---
 
-## Qué se ve en pantalla
+## What the program does
 
-En la ventana gráfica aparecen:
+The program includes:
 
-- la cuadrícula del mapa
-- los edificios como casillas bloqueadas
-- los puntos de entrega marcados con letras
-- el dron moviéndose por el entorno
-- el número de pasos y la recompensa actual
+- an **8x8** map
+- a starting position for the drone
+- **3 delivery points**
+- several buildings blocking some cells
+- a training system
+- a final visualization with **Pygame**
 
-Esto permite ver de forma clara el recorrido que realiza el dron.
-
----
-
-## Archivo principal
-
-- `drone_v3_custom.py` → contiene todo el programa:
-  - definición del entorno
-  - entrenamiento
-  - visualización del dron
+During the simulation, the drone moves through the grid until it completes all deliveries or reaches the step limit.
 
 ---
 
-## Librerías usadas
+## What you see on the screen
+
+In the visual window, you can see:
+
+- the map grid
+- the buildings as blocked cells
+- the delivery points marked with letters
+- the drone moving through the environment
+- the number of steps and the current reward
+
+This makes it easy to clearly see the path followed by the drone.
+
+---
+
+## Main file
+
+- `drone_v3_custom.py` → contains the whole program:
+  - environment definition
+  - training
+  - drone visualization
+
+---
+
+## Libraries used
 
 - Python
 - Gymnasium
@@ -61,13 +61,13 @@ Esto permite ver de forma clara el recorrido que realiza el dron.
 
 ---
 
-## Cómo ejecutarlo
+## How to run it
 
-Instalar librerías:
+Install the libraries:
 
 ```bash
 pip install gymnasium numpy pygame
 
-Ejecutar el programa:
+Run the program:
 
 python drone_v3_custom.py
