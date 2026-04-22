@@ -79,9 +79,9 @@ The agent plays thousands of episodes in order to learn a better policy.
 
 The final performance is measured using:
 
-- average reward,
-- average number of steps,
-- success rate.
+- average reward
+- average number of steps
+- success rate
 
 ## Visual Demonstration
 
