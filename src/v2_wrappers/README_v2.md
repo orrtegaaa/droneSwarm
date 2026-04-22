@@ -1,103 +1,103 @@
-# Versión 2 - Taxi-v3 con wrappers personalizados
+# Version 2 - Taxi-v3 with Custom Wrappers
 
-En esta segunda versión del proyecto seguimos utilizando el entorno prediseñado Taxi-v3 de la librería Gymnasium.  
+In this second version of the project, we continue using the predefined **Taxi-v3** environment from the **Gymnasium** library.  
 
-La idea principal de esta parte de la práctica no es crear todavía un entorno nuevo, sino trabajar sobre uno ya existente y modificar algunos aspectos de su funcionamiento mediante wrappers personalizados.
+The main idea of this part of the assignment is not to create a new environment yet, but to work on an existing one and modify some aspects of its behaviour by using **custom wrappers**.
 
-De esta forma, podemos comparar el comportamiento del entorno original con una versión adaptada, manteniendo la misma base pero introduciendo cambios en recompensas, observaciones y duración de los episodios.
-
----
-
-# Objetivo de esta versión
-
-El objetivo es analizar cómo afectan pequeñas modificaciones del entorno al aprendizaje del agente usando Reinforcement Learning.
-
-Para ello, se mantiene el problema clásico de Taxi-v3, donde un taxi debe recoger a un pasajero y llevarlo a su destino, pero se añaden ciertas mejoras para hacerlo más interesante desde el punto de vista del entrenamiento.
+In this way, we can compare the original environment with an adapted version, keeping the same base while introducing changes in rewards, observations and episode duration.
 
 ---
 
-# Wrappers implementados
+# Objective of this Version
+
+The objective is to analyse how small modifications in the environment can affect the agent’s learning process using **Reinforcement Learning**.
+
+For this reason, the classic Taxi-v3 problem is maintained, where a taxi must pick up a passenger and take them to their destination, but some improvements are added to make the training process more interesting.
+
+---
+
+# Implemented Wrappers
 
 ## 1. CustomRewardWrapper
 
-Este wrapper modifica el sistema de recompensas del entorno original.
+This wrapper modifies the reward system of the original environment.
 
-Cambios realizados:
+Changes made:
 
-- Se penalizan más las acciones inválidas.
-- Se añade una recompensa extra cuando la entrega se realiza en pocos pasos.
+- Invalid actions receive a higher penalty.
+- An extra reward is given when the delivery is completed in a low number of steps.
 
-Con esto se busca que el agente aprenda a actuar de forma más eficiente y cometa menos errores.
+The purpose is to encourage the agent to act more efficiently and make fewer mistakes.
 
 ---
 
 ## 2. CustomTimeLimitWrapper
 
-Este wrapper limita el número máximo de pasos permitidos en cada episodio.
+This wrapper limits the maximum number of steps allowed in each episode.
 
-Si el agente supera ese límite sin completar la tarea, el episodio finaliza automáticamente.
+If the agent exceeds that limit without completing the task, the episode ends automatically.
 
-Esto evita episodios demasiado largos y ayuda a que el entrenamiento sea más estable.
+This prevents episodes from becoming too long and helps the training process remain more stable.
 
 ---
 
 ## 3. CustomObservationWrapper
 
-Este wrapper modifica la observación que recibe el agente.
+This wrapper modifies the observation received by the agent.
 
-En lugar de devolver solo el estado original del entorno, ahora devuelve:
+Instead of returning only the original state of the environment, it now returns:
 
-- El estado original.
-- Los pasos restantes normalizados entre 0 y 1.
+- The original state.
+- The remaining steps normalised between 0 and 1.
 
-De esta forma, el agente dispone de algo más de información durante el aprendizaje.
-
----
-
-# Algoritmo utilizado
-
-Para entrenar al agente se ha utilizado el algoritmo Q-learning.
-
-Se usa una Q-table donde se van almacenando los valores de cada estado y acción, actualizándose episodio tras episodio hasta mejorar la política aprendida.
-
-También se aplica una estrategia epsilon-greedy, que combina:
-
-- Exploración de acciones aleatorias al principio.
-- Aprovechamiento de las mejores acciones aprendidas más adelante.
+In this way, the agent receives additional useful information during learning.
 
 ---
 
-# Funcionamiento general del programa
+# Algorithm Used
 
-El archivo principal ejecuta tres fases:
+The agent was trained using the **Q-learning** algorithm.
 
-## Entrenamiento
+A **Q-table** is used to store the value of each state-action pair, updating it episode after episode in order to improve the learned policy.
 
-El agente juega miles de episodios para aprender una política mejor.
+An **epsilon-greedy** strategy is also applied, combining:
 
-## Evaluación
-
-Se comprueba el rendimiento final midiendo:
-
-- recompensa media,
-- pasos medios,
-- tasa de éxito.
-
-## Demostración visual
-
-Al final se muestra una simulación usando el render original de Taxi-v3 para observar el comportamiento aprendido.
+- Random exploration at the beginning.
+- Exploitation of the best learned actions later.
 
 ---
 
-# Estructura de archivos
+# General Program Structure
 
-- `main_v2.py` → código principal de la versión 2.
-- `README_v2.md` → explicación de esta versión.
+The main file executes three stages:
+
+## Training
+
+The agent plays thousands of episodes in order to learn a better policy.
+
+## Evaluation
+
+The final performance is measured using:
+
+- average reward,
+- average number of steps,
+- success rate.
+
+## Visual Demonstration
+
+At the end, a simulation is shown using the original Taxi-v3 render mode in order to observe the learned behaviour.
 
 ---
 
-# Conclusión
+# File Structure
 
-Esta versión permite comprobar cómo pequeños cambios realizados mediante wrappers pueden influir en el aprendizaje del agente sin necesidad de crear todavía un entorno nuevo.
+- `main_v2.py` → main code for version 2.
+- `README_v2.md` → explanation of this version.
 
-Además, sirve como paso intermedio entre la versión básica inicial y una futura versión personalizada más compleja.
+---
+
+# Conclusion
+
+This version shows how small changes made through wrappers can influence the agent’s learning process without creating a completely new environment.
+
+In addition, it works as an intermediate step between the initial basic version and a future more advanced custom version.
