@@ -58,9 +58,9 @@ Entry point of the program. It imports the three main functions from `entrenamie
 
 ```
 main()
- ├── train()     → Agent training
- ├── evaluate()  → Evaluation of the trained agent
- └── demo()      → Visual demonstration
+train()     → Agent training
+evaluate()  → Evaluation of the trained agent
+demo()      → Visual demonstration
 ```
 
 ### `entrenamiento_v1.py`
@@ -83,12 +83,12 @@ Main training loop over `EPISODES` episodes. At each step:
 3. The Q-table is updated using the Bellman equation.
 4. Epsilon is decayed at the end of each episode.
 
-Every 500 episodes, a summary is printed showing the current epsilon, mean reward, and mean steps over the last block.
+Every 500 episodes, a summary is printed showing the current epsilon, average reward, and average steps over the last block.
 
 #### 5. `evaluate()`
 Runs `EVAL_EPISODES` episodes using only the greedy policy (no exploration — `argmax` over the Q-table). Computes and prints:
-- Mean reward
-- Mean number of steps
+- Average reward
+- Average number of steps
 - Success rate (percentage of episodes where the taxi completed the task)
 
 #### 6. `demo()`
@@ -99,20 +99,7 @@ Runs a single episode with `render_mode="human"` to visually display the trained
 ## General execution flow
 
 ```
-Start
-  │
-  ▼
-Training (5,000 episodes)
-  │  ε decays from 1.0 → 0.01
-  │  Q-table updated episode by episode
-  ▼
-Evaluation (100 episodes, greedy policy)
-  │  Reward, steps, and success rate measured
-  ▼
-Visual demonstration (1 episode, render_mode="human")
-  │  0.4 s pause between steps
-  ▼
-End
+Start -> Training (5,000 episodes) - ε decays from 1.0 → 0.01 - Q-table updated episode by episode -> Evaluation (100 episodes, greedy policy) - Reward, steps, and success rate measured -> Visual demonstration (1 episode, render_mode="human") - 0.4 s pause between steps -> End
 ```
 
 ---
