@@ -1,8 +1,8 @@
 # Versión 2 - Taxi-v3 con wrappers personalizados
 
-En esta segunda versión del proyecto seguimos utilizando el entorno prediseñado **Taxi-v3** de la librería **Gymnasium**.  
+En esta segunda versión del proyecto seguimos utilizando el entorno prediseñado Taxi-v3 de la librería Gymnasium.  
 
-La idea principal de esta parte de la práctica no es crear todavía un entorno nuevo, sino trabajar sobre uno ya existente y modificar algunos aspectos de su funcionamiento mediante **wrappers personalizados**.
+La idea principal de esta parte de la práctica no es crear todavía un entorno nuevo, sino trabajar sobre uno ya existente y modificar algunos aspectos de su funcionamiento mediante wrappers personalizados.
 
 De esta forma, podemos comparar el comportamiento del entorno original con una versión adaptada, manteniendo la misma base pero introduciendo cambios en recompensas, observaciones y duración de los episodios.
 
@@ -10,7 +10,7 @@ De esta forma, podemos comparar el comportamiento del entorno original con una v
 
 # Objetivo de esta versión
 
-El objetivo es analizar cómo afectan pequeñas modificaciones del entorno al aprendizaje del agente usando **Reinforcement Learning**.
+El objetivo es analizar cómo afectan pequeñas modificaciones del entorno al aprendizaje del agente usando Reinforcement Learning.
 
 Para ello, se mantiene el problema clásico de Taxi-v3, donde un taxi debe recoger a un pasajero y llevarlo a su destino, pero se añaden ciertas mejoras para hacerlo más interesante desde el punto de vista del entrenamiento.
 
@@ -56,11 +56,11 @@ De esta forma, el agente dispone de algo más de información durante el aprendi
 
 # Algoritmo utilizado
 
-Para entrenar al agente se ha utilizado el algoritmo **Q-learning**.
+Para entrenar al agente se ha utilizado el algoritmo Q-learning.
 
-Se usa una **Q-table** donde se van almacenando los valores de cada estado y acción, actualizándose episodio tras episodio hasta mejorar la política aprendida.
+Se usa una Q-table donde se van almacenando los valores de cada estado y acción, actualizándose episodio tras episodio hasta mejorar la política aprendida.
 
-También se aplica una estrategia **epsilon-greedy**, que combina:
+También se aplica una estrategia epsilon-greedy, que combina:
 
 - Exploración de acciones aleatorias al principio.
 - Aprovechamiento de las mejores acciones aprendidas más adelante.
